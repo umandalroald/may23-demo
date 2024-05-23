@@ -35,7 +35,6 @@ jobs:
       - name: Install Terminus
         shell: bash
         run: |
-          mkdir ~/terminus && cd ~/terminus
           echo "Installing Terminus v$TERMINUS_RELEASE"
           curl -L https://github.com/pantheon-systems/terminus/releases/download/$TERMINUS_RELEASE/terminus.phar --output terminus
           chmod +x terminus
