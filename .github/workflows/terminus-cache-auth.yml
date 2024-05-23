@@ -5,7 +5,7 @@ on: [push, pull_request]
 jobs:
   connect:
     runs-on: ubuntu-latest
-     Uncomment this line if your TERMINUS_TOKEN secret belongs to a GitHub
+    # Uncomment this line if your TERMINUS_TOKEN secret belongs to a GitHub
     # Environment (preferred for security, see note above).
     # environment: <environment-name>
     steps:
