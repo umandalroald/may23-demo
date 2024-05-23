@@ -64,7 +64,6 @@ jobs:
           pantheon-machine-token: ${{ secrets.TERMINUS_TOKEN }}
       - name: Whoami
         run: |
-          sudo ln -s ~/terminus/terminus /usr/local/bin/terminus
           terminus auth:whoami
 
   # Continue with your build steps...
