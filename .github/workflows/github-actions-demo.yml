@@ -16,4 +16,3 @@ jobs:
         run: |
           ls ${{ github.workspace }}
       - run: echo "🍏 This job's status is ${{ job.status }}."
-      - run: terminus auth:login -n  --machine-token="$TERMINUS_TOKEN"
