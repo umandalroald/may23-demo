@@ -5,7 +5,7 @@ on: [push, pull_request]
 jobs:
   connect:
     runs-on: ubuntu-latest
-    # Uncomment this line if your TERMINUS_TOKEN secret belongs to a GitHub
+     Uncomment this line if your TERMINUS_TOKEN secret belongs to a GitHub
     # Environment (preferred for security, see note above).
     # environment: <environment-name>
     steps:
@@ -35,6 +35,7 @@ jobs:
       - name: Install Terminus
         shell: bash
         run: |
+          mkdir ~/terminus && cd ~/terminus
           echo "Installing Terminus v$TERMINUS_RELEASE"
           curl -L https://github.com/pantheon-systems/terminus/releases/download/$TERMINUS_RELEASE/terminus.phar --output terminus
           chmod +x terminus
