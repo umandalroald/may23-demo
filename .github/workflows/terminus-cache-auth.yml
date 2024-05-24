@@ -41,6 +41,10 @@ jobs:
           chmod +x terminus
         env:
           TERMINUS_RELEASE: ${{ inputs.terminus-version || env.TERMINUS_RELEASE }}
+      - name: Authenticate Terminus (with session cache)
+        uses: pantheon-systems/terminus-github-actions@v1
+        with:
+          pantheon-machine-token: ${{ secrets.TERMINUS_TOKEN }}
       - name: Whoami
         run: terminus auth:whoami
       - name: List All Plugins
