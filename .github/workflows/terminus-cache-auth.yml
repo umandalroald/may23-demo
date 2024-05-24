@@ -48,7 +48,7 @@ jobs:
       - name: Whoami
         run: terminus auth:whoami
       - name: List All Plugins
-        run: echo ${{ secrets.TERMINUS_TOKEN }}
+        run: terminus wp may23-demo.dev cache flush
   deploy:
     needs: [connect]
     runs-on: ubuntu-latest
