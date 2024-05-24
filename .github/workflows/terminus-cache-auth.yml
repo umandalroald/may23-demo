@@ -48,6 +48,9 @@ jobs:
       - name: Whoami
         run: terminus auth:whoami
       - name: List All Plugins
+        uses: pantheon-systems/terminus-github-actions@v1
+        with:
+          pantheon-machine-token: ${{ secrets.TERMINUS_TOKEN }}
         run: terminus wp may23-demo.dev plugin list
   deploy:
     needs: [connect]
