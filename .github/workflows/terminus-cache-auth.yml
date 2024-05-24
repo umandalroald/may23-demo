@@ -48,7 +48,7 @@ jobs:
       - name: Install Terminus Build Tools
         run: terminus self:plugin:install terminus-build-tools-plugin
       - name: Delete Circle CI multidev
-        run: terminus build:env:delete may23-demo '^ci-' --keep=2 --delete-branch
+        run: terminus build:env:delete:ci may23-demo '^ci-' --keep=2 --delete-branch
       - name: Whoami
         run: terminus auth:whoami
   deploy:
