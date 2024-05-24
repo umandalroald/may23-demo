@@ -47,6 +47,7 @@ jobs:
           pantheon-machine-token: ${{ secrets.TERMINUS_TOKEN }}
       - name: Whoami
         run: terminus auth:whoami
+        run: terminus env:wake -n "$TERMINUS_SITE.dev"
   deploy:
     needs: [connect]
     runs-on: ubuntu-latest
