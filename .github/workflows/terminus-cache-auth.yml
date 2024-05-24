@@ -45,10 +45,10 @@ jobs:
         uses: pantheon-systems/terminus-github-actions@v1
         with:
           pantheon-machine-token: ${{ secrets.TERMINUS_TOKEN }}
+      - name: Install Terminus Build Tools
+        run: terminus self:plugin:install terminus-build-tools-plugin
       - name: Whoami
         run: terminus auth:whoami
-      - name: List All Plugins
-        run: terminus wp may23-demo.dev cache flush
   deploy:
     needs: [connect]
     runs-on: ubuntu-latest
