@@ -48,8 +48,8 @@ jobs:
       - name: Install Terminus Build Tools
         run: terminus self:plugin:install terminus-build-tools-plugin
       # Check Terminus works.
-      - name: Update Ignore File.
-        run: terminus build:gitignore:cut
+      - name: Create Multidev.
+        run: terminus build:env:create may23-demo.dev pantheoncse
       - name: Whoami
         run: terminus auth:whoami
   deploy:
