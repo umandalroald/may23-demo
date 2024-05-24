@@ -47,6 +47,9 @@ jobs:
           pantheon-machine-token: ${{ secrets.TERMINUS_TOKEN }}
       - name: Install Terminus Build Tools
         run: terminus self:plugin:install terminus-build-tools-plugin
+      # Check Terminus works.
+      - name: Update Ignore File.
+        run: terminus build:gitignore:cut
       - name: Whoami
         run: terminus auth:whoami
   deploy:
