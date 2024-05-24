@@ -32,6 +32,21 @@ jobs:
               | perl -nle'print $& while m#"tag_name": "\K[^"]*#g'
           )
           echo "TERMINUS_RELEASE=$TERMINUS_RELEASE" >> $GITHUB_ENV
+      - name: Install Terminus
+        shell: bash
+        run: |
+          mkdir ~/terminus && cd ~/terminus
+          echo "Installing Terminus v$TERMINUS_RELEASE"
+          curl -L https://github.com/pantheon-systems/terminus/releases/download/$TERMINUS_RELEASE/terminus.phar --output terminus
+          chmod +x terminus
+        env:
+          TERMINUS_RELEASE: ${{ inputs.terminus-version || env.TERMINUS_RELEASE }}
+      - name: Authenticate Terminus (with session cache)
+        uses: pantheon-systems/terminus-github-actions@v1
+        with:
+          pantheon-machine-token: ${{ secrets.TERMINUS_TOKEN }}
+      - name: Whoami
+        run: terminus auth:whoami
   deploy:
     needs: [connect]
     runs-on: ubuntu-latest
@@ -65,6 +80,5 @@ jobs:
       - name: Whoami
         run: |
           terminus auth:whoami
-          terminus wp may23-demo.dev plugin list
 
   # Continue with your build steps...
