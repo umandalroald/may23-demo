@@ -47,9 +47,8 @@ jobs:
           pantheon-machine-token: ${{ secrets.TERMINUS_TOKEN }}
       - name: Install Terminus Build Tools
         run: terminus self:plugin:install terminus-build-tools-plugin
-      # Check Terminus works.
-      - name: Create Multidev.
-        run: terminus build:env:create may23-demo.dev pantheoncse
+      - name: Delete Circle CI multidev
+        run: terminus build:env:delete may23-demo '^ci-' --keep=2 --delete-branch
       - name: Whoami
         run: terminus auth:whoami
   deploy:
